@@ -1,24 +1,24 @@
-# README
+# whatsapp-with-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Companion Rails app for the [WhatsApp with Rails](https://antoninoscaffidi.github.io/series/whatsapp-with-rails/) blog series ([Italiano](https://antoninoscaffidi.github.io/it/series/whatsapp-with-rails/)) — sending a WhatsApp message from a Rails app, first via Twilio, then via a direct Meta WhatsApp Cloud API variant for comparison.
 
-Things you may want to cover:
+Each blog post has a matching git tag here (`episode-1`, `episode-2`, ...) so you can check out the exact code state discussed in that post:
 
-* Ruby version
+```bash
+git checkout episode-1
+```
 
-* System dependencies
+## Stack
 
-* Configuration
+- Rails 8.1, Tailwind CSS
+- PostgreSQL
 
-* Database creation
+## Setup
 
-* Database initialization
+```bash
+bundle install
+bin/rails db:create db:migrate
+bin/dev
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+App available at `http://127.0.0.1:3000`.
