@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+  has_many :messages, dependent: :destroy
+
   validates :name, presence: true
   validates :whatsapp_number, presence: true, format: {
     with: /\A\+[1-9]\d{6,14}\z/,

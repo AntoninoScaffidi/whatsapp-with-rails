@@ -11,14 +11,23 @@
     </p>
   <% end %>
 
+  <% if alert %>
+    <p class="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+      <%= alert %>
+    </p>
+  <% end %>
+
   <% if @contacts.empty? %>
     <p class="text-gray-500">No contacts yet.</p>
   <% else %>
     <ul class="divide-y divide-gray-200 border border-gray-200 rounded-md">
       <% @contacts.each do |contact| %>
         <li class="flex items-center justify-between px-4 py-3">
-          <span><%= contact.name %></span>
-          <span class="text-gray-500 text-sm"><%= contact.whatsapp_number %></span>
+          <div>
+            <span><%= contact.name %></span>
+            <span class="text-gray-500 text-sm ml-2"><%= contact.whatsapp_number %></span>
+          </div>
+          <%= link_to "Message", new_contact_message_path(contact), class: "text-emerald-700 text-sm hover:underline" %>
         </li>
       <% end %>
     </ul>

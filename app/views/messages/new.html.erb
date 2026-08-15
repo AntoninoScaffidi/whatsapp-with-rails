@@ -1,0 +1,25 @@
+<div class="max-w-xl mx-auto mt-16 px-4">
+  <h1 class="text-2xl font-semibold mb-1">Message <%= @contact.name %></h1>
+  <p class="text-gray-500 text-sm mb-6"><%= @contact.whatsapp_number %></p>
+
+  <%= form_with model: @message, url: contact_messages_path(@contact), class: "flex flex-col gap-4" do |f| %>
+    <% if @message.errors.any? %>
+      <div class="text-sm text-red-700 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+        <ul class="list-disc list-inside">
+          <% @message.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.label :body, "Message", class: "block text-sm font-medium text-gray-700 mb-1" %>
+      <%= f.text_area :body, rows: 4,
+          class: "w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500" %>
+    </div>
+
+    <%= f.submit "Send via WhatsApp",
+        class: "self-start bg-emerald-600 text-white px-4 py-2 rounded-md hover:bg-emerald-700 cursor-pointer" %>
+  <% end %>
+</div>
